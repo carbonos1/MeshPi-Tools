@@ -5,7 +5,8 @@ import socket
 
 #get up host port
 s = socket.socket()
-host = socket.gethostname()
+#host = socket.gethostname()
+host = '192.168.1.120'
 port = 12346
 s.bind((host,port))
 
