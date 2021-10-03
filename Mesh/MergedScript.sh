@@ -20,6 +20,15 @@ iwconfig wlan1 essid 'TOC-TestMesh'
 ifconfig wlan1 $2 netmask 255.255.255.0 
 
 
+# You have to manually enable arp or manually add arp entries, Google this when you get the chance, but for safekeeping its in comments here
+
+#touch /etc/ethers
+#echo 169.254.1.1 bb:bb:bb:bb:etcetc
+
+# then run
+# arp -f 
+# arp -a
+
 # Determine The Routing Protocol to use
 case $1 in
 olsr | OLSR | o )
@@ -45,7 +54,7 @@ IBSS | ibss )
     iw wlan1 set type ibss
     ip link set wlan1 up
     iw wlan1 ibss join 'TOC-TestMesh' 2437
-
+;;
 *) 
     echo "No Option Specified, no routing protocol will be used"
     ;;
